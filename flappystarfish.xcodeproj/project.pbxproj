@@ -14,6 +14,11 @@
 		FBF6689619A6D905003F1D18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBF6689419A6D905003F1D18 /* Main.storyboard */; };
 		FBF6689819A6D905003F1D18 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBF6689719A6D905003F1D18 /* Images.xcassets */; };
 		FBF668A419A6D905003F1D18 /* flappystarfishTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF668A319A6D905003F1D18 /* flappystarfishTests.swift */; };
+		FBF668B319A6D91E003F1D18 /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF668AE19A6D91E003F1D18 /* ground.png */; };
+		FBF668B419A6D91E003F1D18 /* skyline.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF668AF19A6D91E003F1D18 /* skyline.png */; };
+		FBF668B519A6D91E003F1D18 /* star-1.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF668B019A6D91E003F1D18 /* star-1.png */; };
+		FBF668B619A6D91E003F1D18 /* star-2.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF668B119A6D91E003F1D18 /* star-2.png */; };
+		FBF668B719A6D91E003F1D18 /* star-3.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF668B219A6D91E003F1D18 /* star-3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +43,11 @@
 		FBF6689D19A6D905003F1D18 /* flappystarfishTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = flappystarfishTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBF668A219A6D905003F1D18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBF668A319A6D905003F1D18 /* flappystarfishTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flappystarfishTests.swift; sourceTree = "<group>"; };
+		FBF668AE19A6D91E003F1D18 /* ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.png; sourceTree = "<group>"; };
+		FBF668AF19A6D91E003F1D18 /* skyline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skyline.png; sourceTree = "<group>"; };
+		FBF668B019A6D91E003F1D18 /* star-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-1.png"; sourceTree = "<group>"; };
+		FBF668B119A6D91E003F1D18 /* star-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-2.png"; sourceTree = "<group>"; };
+		FBF668B219A6D91E003F1D18 /* star-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-3.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +94,7 @@
 				FBF6689019A6D905003F1D18 /* GameScene.swift */,
 				FBF6689219A6D905003F1D18 /* GameViewController.swift */,
 				FBF6689419A6D905003F1D18 /* Main.storyboard */,
+				FBF668AD19A6D91E003F1D18 /* fwdflappystargamescene */,
 				FBF6689719A6D905003F1D18 /* Images.xcassets */,
 				FBF6688A19A6D905003F1D18 /* Supporting Files */,
 			);
@@ -113,6 +124,18 @@
 				FBF668A219A6D905003F1D18 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FBF668AD19A6D91E003F1D18 /* fwdflappystargamescene */ = {
+			isa = PBXGroup;
+			children = (
+				FBF668AE19A6D91E003F1D18 /* ground.png */,
+				FBF668AF19A6D91E003F1D18 /* skyline.png */,
+				FBF668B019A6D91E003F1D18 /* star-1.png */,
+				FBF668B119A6D91E003F1D18 /* star-2.png */,
+				FBF668B219A6D91E003F1D18 /* star-3.png */,
+			);
+			path = fwdflappystargamescene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,9 +218,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBF668B319A6D91E003F1D18 /* ground.png in Resources */,
 				FBF6689819A6D905003F1D18 /* Images.xcassets in Resources */,
 				FBF6688F19A6D905003F1D18 /* GameScene.sks in Resources */,
 				FBF6689619A6D905003F1D18 /* Main.storyboard in Resources */,
+				FBF668B419A6D91E003F1D18 /* skyline.png in Resources */,
+				FBF668B619A6D91E003F1D18 /* star-2.png in Resources */,
+				FBF668B519A6D91E003F1D18 /* star-1.png in Resources */,
+				FBF668B719A6D91E003F1D18 /* star-3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
