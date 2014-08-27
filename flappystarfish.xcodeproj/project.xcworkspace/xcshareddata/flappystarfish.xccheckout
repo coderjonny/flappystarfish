@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>EADD755F-CC4F-4CE8-BD9B-3602149E8C7C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>flappystarfish</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>AF2E37227D8F16B2F92A750F58D0DC74395B694D</key>
+		<string>https://github.com/coderjonny/flappystarfish.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>flappystarfish.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>AF2E37227D8F16B2F92A750F58D0DC74395B694D</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/coderjonny/flappystarfish.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>AF2E37227D8F16B2F92A750F58D0DC74395B694D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AF2E37227D8F16B2F92A750F58D0DC74395B694D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>flappystarfish</string>
+		</dict>
+	</array>
+</dict>
+</plist>

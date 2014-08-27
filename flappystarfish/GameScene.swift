@@ -26,6 +26,8 @@ class GameScene: SKScene {
     
     var skyColor = SKColor()
     
+    var bgimage = SKSpriteNode ()
+    
     
     
     override func didMoveToView(view: SKView) {
@@ -42,7 +44,7 @@ class GameScene: SKScene {
         
         
         
-        skyColor = SKColor (red: 113.0/255.0, green: 197.0/255.0, blue: 207.0/255.0, alpha: 1.0)
+        skyColor = SKColor (red: 108.0/255.0, green: 251.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         
         self.backgroundColor = skyColor
         
@@ -83,40 +85,53 @@ class GameScene: SKScene {
         
         
         
-        
         //add a ground for the star fish
         
         var groundTexture = SKTexture (imageNamed:"ground")
+        groundTexture.filteringMode = SKTextureFilteringMode.Nearest
+        
+    
         
         
+        //make the ground move
+        var moveGroundSprite = SKAction.moveByX(-groundTexture.size().width, y: 0, duration: NSTimeInterval(0.01 * groundTexture.size().width))
+        var resetGroundSprite = SKAction.moveByX(groundTexture.size().width, y: 0, duration: 0.0)
+        var moveGroundSpriteForever = SKAction.repeatActionForever(SKAction.sequence([moveGroundSprite, resetGroundSprite]))
         
-        var sprite = SKSpriteNode(texture:groundTexture)
+        for var i: CGFloat = 0; i<1 + self.frame.size.width / (groundTexture.size().width); ++i
+        {
+            var sprite = SKSpriteNode(texture:groundTexture)
+            sprite.setScale(2)
+            sprite.position = CGPointMake(i * self.size.width/2,sprite.size.height/2.0)
+            sprite.runAction(moveGroundSpriteForever)
+            self.addChild(sprite)
+    
+        }
         
-        sprite.setScale(1.7)
+        //add a skyline
+        var skylineTexture = SKTexture (imageNamed:"skyline")
+        skylineTexture.filteringMode = SKTextureFilteringMode.Nearest
         
-        sprite.position = CGPointMake(self.size.width/2,sprite.size.height/2.0)
+        //make the sky move!
+        var moveSkylineSprite = SKAction.moveByX(-groundTexture.size().width, y: 0, duration: NSTimeInterval(0.01 * groundTexture.size().width))
+        var resetSkylineSprite = SKAction.moveByX(groundTexture.size().width, y: 0, duration: 0.0)
+        var moveSkylineSpriteForever = SKAction.repeatActionForever(SKAction.sequence([moveSkylineSprite,resetSkylineSprite]))
         
-        self.addChild(sprite) //adds image of sprite
+//        for var i: CGFloat = 0; i<+ self.frame.size.width / (skylineTexture.size().width); ++i {
+        for var i: CGFloat = 0; i<2 ; ++i {
+        var sprite = SKSpriteNode(texture:skylineTexture)
+            sprite.zPosition = -20;
+            sprite.setScale(2)
+//          sprite.position = CGPointMake(i * sprite.size.width, sprite.size.height / 2 + groundTexture.size().height)
+            sprite.position = CGPointMake(i * sprite.size.width, sprite.size.height / 2 + groundTexture.size().height)
+            sprite.runAction(moveGroundSpriteForever)
+            self.addChild(sprite)
+
         
     }
     
-    var skylineTexture = SKTexture (imageNamed:"skyline")
-    
-    
-    
-}
 
-
-
-
-
-
-
-
-
-
-
-
+    }
 
 //adds physics to ground node
 
@@ -130,7 +145,7 @@ class GameScene: SKScene {
 
 
 
-func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
     
     /* Called when a touch begins */
     
@@ -151,5 +166,5 @@ func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         /* Called before each frame is rendered */
         
     }
-    
+}
 }
