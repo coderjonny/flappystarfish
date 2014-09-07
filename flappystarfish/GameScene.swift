@@ -83,6 +83,11 @@ class GameScene: SKScene {
         self.addChild(star)
         
         
+        //Make the starfish fall
+        
+        star.physicsBody = SKPhysicsBody(circleOfRadius: star.size.height / 2.0)
+        star.physicsBody.dynamic = true
+        star.physicsBody.allowsRotation = false
         
         
         //add a ground for the star fish
@@ -90,8 +95,14 @@ class GameScene: SKScene {
         var groundTexture = SKTexture (imageNamed:"ground")
         groundTexture.filteringMode = SKTextureFilteringMode.Nearest
         
-    
         
+        //add a dummy ground for the starfish
+        
+        var dummy = SKNode()
+        dummy.position = CGPointMake(0,groundTexture.size().height/2)
+        dummy.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(self.frame.width,groundTexture.size().height))
+        dummy.physicsBody.dynamic = false
+        self.addChild(dummy)
         
         //make the ground move
         var moveGroundSprite = SKAction.moveByX(-groundTexture.size().width, y: 0, duration: NSTimeInterval(0.01 * groundTexture.size().width))
@@ -145,26 +156,27 @@ class GameScene: SKScene {
 
 
 
-override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
     
     /* Called when a touch begins */
     
+    star.physicsBody.velocity = CGVectorMake(0,50)
+    star.physicsBody.applyImpulse(CGVectorMake(0,120))
     
-    
-    for touch: AnyObject in touches {
-        
-        
-        
-        
-        
+
     }
     
-    
-    
-    func update(currentTime: CFTimeInterval) {
-        
-        /* Called before each frame is rendered */
-        
+    func clamp (min: CGFloat, max: CGFloat, value: CGFloat) -> CGFloat {
+        if (value > max) {
+            return max
+        } else if (value < min) {
+            return min
+        } else {
+            return value
+        }
     }
-}
+    
+    override func update(currentTime: CFTimeInterval) {
+        star.zRotation = self.clamp(-0.5, max: 0.1, value: star.physicsBody.velocity.dy - (star.physicsBody.velocity.dy < 0 ? 0.003 : 0.001 ))
+    }
 }
