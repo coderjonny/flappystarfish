@@ -28,6 +28,14 @@ class GameScene: SKScene {
     
     var bgimage = SKSpriteNode ()
     
+    var pipeUpTexture = SKTexture()
+    
+    var pipeDownTexture = SKTexture()
+    
+    var pipesMoveAndRemove = SKAction()
+    
+    let pipeGap = 200.0
+    
     
     
     override func didMoveToView(view: SKView) {
@@ -37,6 +45,7 @@ class GameScene: SKScene {
         //Physics
         
         self.physicsWorld.gravity = CGVectorMake(0.0, -5.0);
+        
         
         
         
@@ -124,7 +133,7 @@ class GameScene: SKScene {
         skylineTexture.filteringMode = SKTextureFilteringMode.Nearest
         
         //make the sky move!
-        var moveSkylineSprite = SKAction.moveByX(-groundTexture.size().width, y: 0, duration: NSTimeInterval(0.01 * groundTexture.size().width))
+        var moveSkylineSprite = SKAction.moveByX(-groundTexture.size().width, y: 0, duration: NSTimeInterval(0.0 * groundTexture.size().width))
         var resetSkylineSprite = SKAction.moveByX(groundTexture.size().width, y: 0, duration: 0.0)
         var moveSkylineSpriteForever = SKAction.repeatActionForever(SKAction.sequence([moveSkylineSprite,resetSkylineSprite]))
         
@@ -132,7 +141,7 @@ class GameScene: SKScene {
         for var i: CGFloat = 0; i<2 ; ++i {
         var sprite = SKSpriteNode(texture:skylineTexture)
             sprite.zPosition = -20;
-            sprite.setScale(2)
+            sprite.setScale(3)
 //          sprite.position = CGPointMake(i * sprite.size.width, sprite.size.height / 2 + groundTexture.size().height)
             sprite.position = CGPointMake(i * sprite.size.width, sprite.size.height / 2 + groundTexture.size().height)
             sprite.runAction(moveGroundSpriteForever)
@@ -140,10 +149,60 @@ class GameScene: SKScene {
 
         
     }
-    
+//Create the PIPES
+        pipeUpTexture = SKTexture(imageNamed:"seaweed")
+        pipeDownTexture = SKTexture(imageNamed:"seaweed2")
 
+//Create the movement of the pipes
+        
+        let distanceToMove = CGFloat(self.frame.size.width + 2.0 * pipeUpTexture.size().width)
+        // ^ this spaces the pipes a little more wider from the frame so it won't disappear on the edge
+        let movePipes = SKAction.moveByX(-distanceToMove, y:0.0, duration:NSTimeInterval(0.01 * distanceToMove)) // this is the split interval of pipes moving
+        
+        let removePipes = SKAction.removeFromParent() //completely take away pipes from screen
+        pipesMoveAndRemove = SKAction.sequence([movePipes,removePipes]) // does sequence above 
+        
+//Spawn pipes
+        let spawn = SKAction.runBlock({() in self.spawnPipes()}) // <-- runs spawn pipes function
+        let delay = SKAction.waitForDuration(NSTimeInterval(2.0))
+        let spawnThenDelay = SKAction.sequence([spawn,delay])
+        let spawnThenDelayForever = SKAction.repeatActionForever(spawnThenDelay)
+        
+        self.runAction(spawnThenDelayForever)
+        
     }
-
+    func spawnPipes() {
+        let pipePair = SKNode() // node that'll call sprites
+        pipePair.position = CGPointMake(self.frame.size.width + pipeUpTexture.size().width * 2,0)
+        pipePair.zPosition = -10 // whether object is in front or behind. bird is at 0 already
+        
+        let height = UInt32(self.frame.size.height/4)
+        let y = arc4random() % height + height //area where pipes spawn 0-height)
+        
+        let pipeDown = SKSpriteNode(texture: pipeDownTexture)
+        pipeDown.setScale(2.0) //size of pipe
+        
+        //takes y value and adds height of pipe then adds a gap between bottom and top pipe
+        pipeDown.position = CGPointMake(0.0, CGFloat(y)+pipeDown.size.height + CGFloat(pipeGap))
+        
+        //add physics body to pipes so things can collide with it
+        pipeDown.physicsBody = SKPhysicsBody(rectangleOfSize: pipeDown.size)
+        pipeDown.physicsBody.dynamic = false //nothing will happen when objects collide with it
+        pipePair.addChild(pipeDown)
+        
+        let pipeUp = SKSpriteNode(texture: pipeUpTexture)
+        pipeUp.setScale(3.0)
+        pipeUp.position = CGPointMake(0.0, CGFloat(y))//makes our pipe up position y.
+        
+        pipeUp.physicsBody = SKPhysicsBody(rectangleOfSize: pipeUp.size)
+        pipeUp.physicsBody.dynamic = false
+        pipePair.addChild(pipeUp)
+        
+        pipePair.runAction(pipesMoveAndRemove)
+        self.addChild(pipePair) // makes pipes spawn go on and off the screen every 2.0 seconds
+        
+    }
+        
 //adds physics to ground node
 
 
@@ -151,17 +210,12 @@ class GameScene: SKScene {
 //now let's make the star swim up when poked!
 
 
-
-
-
-
-
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
     
     /* Called when a touch begins */
     
-    star.physicsBody.velocity = CGVectorMake(0,50)
-    star.physicsBody.applyImpulse(CGVectorMake(0,120))
+    star.physicsBody.velocity = CGVectorMake(0,40)
+    star.physicsBody.applyImpulse(CGVectorMake(0,140))
     
 
     }

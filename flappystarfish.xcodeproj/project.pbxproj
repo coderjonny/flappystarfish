@@ -19,6 +19,8 @@
 		CF363F7A19AD62CB007C37DC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF363F6B19AD62CB007C37DC /* GameViewController.swift */; };
 		CF363F7B19AD62CB007C37DC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF363F6C19AD62CB007C37DC /* Images.xcassets */; };
 		CF363F7C19AD62CB007C37DC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF363F6D19AD62CB007C37DC /* Info.plist */; };
+		CFD825D919C0175100EB5E2B /* seaweed.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD825D719C0175100EB5E2B /* seaweed.png */; };
+		CFD825DA19C0175100EB5E2B /* seaweed2.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD825D819C0175100EB5E2B /* seaweed2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		CF363F6B19AD62CB007C37DC /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		CF363F6C19AD62CB007C37DC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CF363F6D19AD62CB007C37DC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFD825D719C0175100EB5E2B /* seaweed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seaweed.png; path = ../../../../Desktop/iOs/flappystargamescene/seaweed.png; sourceTree = "<group>"; };
+		CFD825D819C0175100EB5E2B /* seaweed2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seaweed2.png; path = ../../../../Desktop/iOs/flappystargamescene/seaweed2.png; sourceTree = "<group>"; };
 		FBF6688719A6D905003F1D18 /* flappystarfish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flappystarfish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBF6689D19A6D905003F1D18 /* flappystarfishTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = flappystarfishTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -84,6 +88,8 @@
 		CF363F6319AD62CB007C37DC /* fwdflappystargamescene */ = {
 			isa = PBXGroup;
 			children = (
+				CFD825D719C0175100EB5E2B /* seaweed.png */,
+				CFD825D819C0175100EB5E2B /* seaweed2.png */,
 				CF363F6419AD62CB007C37DC /* ground.png */,
 				CF363F6519AD62CB007C37DC /* skyline.png */,
 				CF363F6619AD62CB007C37DC /* star-1.png */,
@@ -194,8 +200,10 @@
 				CF363F7819AD62CB007C37DC /* GameScene.sks in Resources */,
 				CF363F7419AD62CB007C37DC /* skyline.png in Resources */,
 				CF363F7519AD62CB007C37DC /* star-1.png in Resources */,
+				CFD825DA19C0175100EB5E2B /* seaweed2.png in Resources */,
 				CF363F7319AD62CB007C37DC /* ground.png in Resources */,
 				CF363F7619AD62CB007C37DC /* star-2.png in Resources */,
+				CFD825D919C0175100EB5E2B /* seaweed.png in Resources */,
 				CF363F7C19AD62CB007C37DC /* Info.plist in Resources */,
 				CF363F7219AD62CB007C37DC /* Main.storyboard in Resources */,
 				CF363F7719AD62CB007C37DC /* star-3.png in Resources */,
